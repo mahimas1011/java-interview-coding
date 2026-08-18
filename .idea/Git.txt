@@ -1,0 +1,286 @@
+Absolutely. Keep this as your **Git/GitHub revision note**. I've kept it concise and focused on what you'll actually use in IntelliJ.
+
+# Git & GitHub — IntelliJ Notes
+
+## 1. Clone
+
+**Purpose:** Get an existing GitHub repository onto your computer for the first time.
+
+**When:** Only when you are starting with a repository that isn't already on your computer.
+
+**IntelliJ:**
+`Git → Clone`
+
+Or use:
+
+```text id="7j4q6x"
+GitHub URL
+      ↓
+    Clone
+      ↓
+Your Computer
+```
+
+Example:
+
+```bash
+git clone <repository-url>
+```
+
+**Remember:** Clone = **GitHub → Computer for the first time**
+
+---
+
+## 2. Commit
+
+**Purpose:** Save your changes in your **local Git history**.
+
+After writing/modifying code:
+
+**IntelliJ shortcut:** `Ctrl + K`
+
+Example commit message:
+
+```text
+Add Fibonacci program
+```
+
+```text id="6k8s2a"
+Your changes
+     ↓
+   Commit
+     ↓
+Local Git history
+```
+
+**Important:** Commit does **NOT** upload anything to GitHub.
+
+---
+
+## 3. Push
+
+**Purpose:** Upload your committed changes to GitHub.
+
+**IntelliJ shortcut:** `Ctrl + Shift + K`
+
+```text id="x4h0zc"
+Local commits
+     ↓
+    Push
+     ↓
+   GitHub
+```
+
+### Your normal coding workflow:
+
+```text
+Write code
+   ↓
+Commit (Ctrl + K)
+   ↓
+Push (Ctrl + Shift + K)
+   ↓
+GitHub updated
+```
+
+---
+
+# 4. Pull
+
+**Purpose:** Bring the latest changes from GitHub to your local project.
+
+**IntelliJ shortcut:** `Ctrl + T`
+
+```text id="9w6b8v"
+GitHub
+   ↓
+ Pull
+   ↓
+Your Computer
+```
+
+### Example
+
+Someone on your team changes `README.md` and pushes it to GitHub.
+
+Your local IntelliJ still has the old version.
+
+You do:
+
+**`Ctrl + T`**
+
+Now your local repository gets the latest changes.
+
+### Remember:
+
+**Push = Local → GitHub**
+
+**Pull = GitHub → Local**
+
+---
+
+# 5. Pull Request (PR)
+
+This is different from `git pull`.
+
+A **Pull Request** means:
+
+> "I've made changes in my branch. Please review my code and, if everything is okay, merge it into another branch."
+
+This is **very common in professional development**.
+
+### Typical company workflow
+
+Suppose the main branch is:
+
+```text
+main
+```
+
+You don't directly modify `main`.
+
+You create your own branch:
+
+```text
+main
+  │
+  └── feature/fibonacci
+```
+
+You work on:
+
+```text
+feature/fibonacci
+```
+
+Then:
+
+```text
+Write code
+    ↓
+Commit
+    ↓
+Push
+    ↓
+GitHub
+    ↓
+Create Pull Request
+    ↓
+Code Review
+    ↓
+Approved
+    ↓
+Merge into main
+```
+
+---
+
+# 6. How do you create a Pull Request?
+
+After pushing your branch to GitHub:
+
+### On GitHub:
+
+**Pull requests → New pull request**
+
+Select:
+
+```text
+base: main
+compare: feature/fibonacci
+```
+
+Meaning:
+
+> "Take my `feature/fibonacci` changes and merge them into `main`."
+
+Then add:
+
+**Title:**
+
+```text
+Add Fibonacci program
+```
+
+**Description:**
+
+```text
+Added Fibonacci implementation and documentation.
+```
+
+Click:
+
+**Create pull request**
+
+Your teammate reviews your code.
+
+They might:
+
+* Approve it ✅
+* Ask for changes
+* Reject it
+
+Once approved, the PR can be **merged** into `main`.
+
+---
+
+# 7. The most important distinction
+
+Don't confuse these:
+
+### `git pull`
+
+**Synchronize your local repository with GitHub.**
+
+```text
+GitHub → Local
+```
+
+### Pull Request
+
+**Request that your code be reviewed and merged into another branch.**
+
+```text
+Your branch → Review → main
+```
+
+They have the word **pull**, but they are completely different things.
+
+---
+
+# 8. Your Git cheat sheet
+
+| Action           | IntelliJ               | Meaning                                   |
+| ---------------- | ---------------------- | ----------------------------------------- |
+| **Clone**        | `Git → Clone`          | GitHub → Computer for first-time setup    |
+| **Commit**       | `Ctrl + K`             | Save changes in local Git history         |
+| **Push**         | `Ctrl + Shift + K`     | Upload committed changes to GitHub        |
+| **Pull**         | `Ctrl + T`             | Bring GitHub changes to your computer     |
+| **Pull Request** | GitHub → Pull Requests | Ask for your branch to be reviewed/merged |
+
+### Memorize this:
+
+```text
+CLONE
+GitHub → Local (first time)
+
+COMMIT
+Changes → Local Git history
+
+PUSH
+Local → GitHub
+
+PULL
+GitHub → Local
+
+PULL REQUEST
+My branch → Review → Main
+```
+
+For your **personal Java practice repository**, you'll mostly do:
+
+**Code → Commit → Push**
+
+When you start working on real team projects, you'll commonly do:
+
+**Pull → Create branch → Code → Commit → Push → Pull Request → Code Review → Merge → Pull**.
